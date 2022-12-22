@@ -28,7 +28,6 @@ void setup()
  pinMode(Air2, OUTPUT); //motor sürücü in2 çıkış olarak tanımlandı
  pinMode(GreenLed, OUTPUT); //yeşil led çıkış olarak tanımlandı
  pinMode(RedLed, OUTPUT); //kırmızı led çıkış olarak tanımlandı
- pinMode(16,OUTPUT);
  pinMode(buzzerPin,OUTPUT); //buzzer çıkış olarak tanımlandı
  pinMode(MQ2pin, INPUT); //gaz sensörü giriş olarak tanımlandı
  digitalWrite(GreenLed, LOW); //başlangıçta yeşil led sönük
@@ -51,21 +50,9 @@ void loop()
  Serial.print(A0); //
  Serial.println("");
  Blynk.virtualWrite(V2, sensorDegeri); //sensör değeri Blynk’e yazdırıldı
- if(sensorDegeri > 550 && sensorDegeri < 900) //sensör değeri normalin üzerindeyse
- {
- Serial.print("Smoke detected!");
- digitalWrite(Air, HIGH); //havalandırma sistemi devreye girdi
- digitalWrite(Air2, LOW);
- delay(2000);
- }
-
+ 
  n=analogRead(A0);
- if(n>900)
- {
- n==m;
- m=analogRead(A0);
- Serial.println(m);
- }
+ 
  if(n>550 && n<900) //sensör değeri normalin üzerindeyse
  {
  digitalWrite(buzzerPin, LOW);
